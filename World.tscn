@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Blocks.meshlib" type="MeshLibrary" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+
+[node name="World" type="Spatial"]
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource( 1 )
+cell_size = Vector3( 1, 1, 1 )
+cell_center_z = false
+data = {
+"cells": PoolIntArray( -393203, 0, 0, -393202, 0, 0, -327674, 0, 0, -327673, 0, 0, -327672, 0, 0, -327671, 0, 0, -327670, 0, 0, -327669, 0, 536870912, -327668, 0, 0, -327665, 0, 0, -327664, 0, 0, -327663, 0, 0, -262144, 0, 0, -262143, 0, 0, -262142, 0, 0, -262141, 0, 0, -262140, 0, 0, -262139, 0, 0, -262127, 0, 0, -196619, 0, 0, -196618, 0, 0, -196617, 0, 0, -196616, 0, 0, -196615, 0, 536870912, -196614, 0, 0, -196613, 0, 0, -196612, 0, 0, -196611, 0, 0, -196610, 0, 0, -196609, 0, 0, -196591, 0, 0, -131083, 0, 0, -131055, 0, 0, -65547, 0, 0, -11, 0, 0 )
+}
+__meta__ = {
+"_editor_clip_": 0
+}
+
+[node name="DirectionalLight" type="DirectionalLight" parent="GridMap"]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8765, -3.63056, 0 )
