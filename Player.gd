@@ -9,8 +9,14 @@ var vy = 0
 var facing_right = false
  
 onready var anim_player = $Model/AnimationPlayer
- 
+
+
+func _ready():
+	pass
+	
+	
 func _physics_process(delta):
+	print()
 	var dx
 	if Input.is_action_pressed("move_right"):
 		dx = 1
@@ -25,8 +31,10 @@ func _physics_process(delta):
 	if vy < -MAX_FALL_SPEED:
 		vy = -MAX_FALL_SPEED
 	if is_on_floor():
-		vy = -0.1
+		$Model/DodoRig/Skeleton.physical_bones_stop_simulation()
+		vy = 0
 		if Input.is_action_pressed("jump"):
+			$Model/DodoRig/Skeleton.physical_bones_start_simulation()
 			vy = JUMP_FORCE
    
 	if dx < 0 and facing_right:
