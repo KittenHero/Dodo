@@ -74,6 +74,7 @@ radius = 0.0104144
 height = 0.0833149
 
 [node name="Player" type="KinematicBody"]
+collision_layer = 2
 script = ExtResource( 3 )
 
 [node name="Camera" type="Camera" parent="."]
@@ -90,9 +91,10 @@ transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 0
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0136331, 0.00794071, -0.0447616 )
 
 [node name="Physical Bone Hip" type="PhysicalBone" parent="Model/DodoRig/Skeleton" index="1"]
-transform = Transform( 0.00079014, 0.99999, 0.00430135, -0.808352, 0.00317092, -0.58869, -0.588698, -0.00301186, 0.808347, -0.00106321, 0.727739, -0.140016 )
-joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.29622e-07, -4.21256e-08, 0.247169 )
-body_offset = Transform( 1, 1.17579e-07, 2.95191e-06, -1.29279e-07, 1, 1.70432e-07, -2.97942e-06, -1.07102e-07, 1, 0, 0, -0.247169 )
+transform = Transform( 0.000790132, 0.99999, 0.00430135, -0.808352, 0.00317092, -0.58869, -0.588698, -0.00301186, 0.808347, -0.00106321, 0.727739, -0.140016 )
+collision_layer = 4
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1778e-07, -4.36417e-08, 0.247169 )
+body_offset = Transform( 1, 1.1595e-07, 2.98172e-06, -1.37836e-07, 1, 1.69501e-07, -2.97945e-06, -1.10362e-07, 1, -1.19209e-07, 1.74623e-09, -0.247169 )
 bone_name = "Hip"
 
 [node name="CollisionShape" type="CollisionShape" parent="Model/DodoRig/Skeleton/Physical Bone Hip"]
@@ -100,10 +102,11 @@ transform = Transform( 1, 4.24916e-09, -7.44141e-07, 5.23869e-10, 1, 9.31323e-10
 shape = SubResource( 2 )
 
 [node name="Physical Bone Sternum" type="PhysicalBone" parent="Model/DodoRig/Skeleton" index="2"]
-transform = Transform( 0.999838, -0.00348131, -0.0174951, -0.0177593, -0.102248, -0.994601, 0.00167357, 0.994751, -0.102293, -0.000523893, 0.964344, -0.330445 )
+transform = Transform( 0.999832, -0.0034813, -0.0174951, -0.0177593, -0.102247, -0.994601, 0.00167355, 0.994748, -0.102293, -0.000523892, 0.964344, -0.330445 )
+collision_layer = 4
 joint_type = 1
-joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08229e-19, -1.49948e-11, 0.0915942 )
-body_offset = Transform( 0.999996, 7.21775e-09, 0, -2.32831e-09, 0.999998, 1.63709e-10, 6.33299e-08, 2.4218e-08, 1, 0, 0, -0.0915942 )
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.86267e-09, 1.19195e-07, 0.0915941 )
+body_offset = Transform( 0.999991, 1.76951e-08, 0, -3.49246e-09, 0.999995, 1.63709e-10, 1.73226e-07, 6.11508e-08, 1, 1.86265e-09, -1.19209e-07, -0.0915941 )
 bone_name = "Sternum"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
@@ -114,10 +117,11 @@ transform = Transform( 0.999999, 2.09548e-09, 1.11759e-08, -4.65661e-10, 1, 2.99
 shape = SubResource( 3 )
 
 [node name="Physical Bone Neck" type="PhysicalBone" parent="Model/DodoRig/Skeleton" index="3"]
-transform = Transform( -0.999993, 3.69288e-06, 0.00377259, -0.00344913, 0.404233, -0.914649, -0.00152829, -0.914656, -0.40423, 0.000539302, 1.18619, -0.26329 )
+transform = Transform( -0.999993, 3.69958e-06, 0.00377258, -0.00344913, 0.404233, -0.914649, -0.00152829, -0.914656, -0.40423, 0.000539318, 1.18619, -0.26329 )
+collision_layer = 4
 joint_type = 1
-joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0572e-09, 5.77376e-08, 0.142952 )
-body_offset = Transform( 1, -4.32692e-09, 7.45058e-09, 2.36469e-11, 1, 1.30603e-08, 2.32831e-10, 1.33687e-08, 1, -5.12227e-09, -5.96046e-08, -0.142952 )
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.87245e-08, 1.17342e-07, 0.142952 )
+body_offset = Transform( 1, -1.10228e-08, 1.88593e-08, 2.36469e-11, 1, 1.30603e-08, 2.32831e-10, 1.33939e-08, 1, -2.14204e-08, -1.19209e-07, -0.142952 )
 bone_name = "Neck"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
@@ -128,10 +132,11 @@ transform = Transform( 1, -1.72759e-09, 2.32831e-09, 2.36469e-11, 1, 1.30603e-08
 shape = SubResource( 4 )
 
 [node name="Physical Bone ShoulderBladeL" type="PhysicalBone" parent="Model/DodoRig/Skeleton" index="4"]
-transform = Transform( -0.367852, 0.694491, -0.618363, 0.0457813, -0.650657, -0.757991, -0.928757, -0.307138, 0.20755, 0.211708, 0.891414, -0.0136019 )
+transform = Transform( -0.367852, 0.694496, -0.618363, 0.0457813, -0.650656, -0.757991, -0.928757, -0.307138, 0.20755, 0.211708, 0.891414, -0.0136019 )
+collision_layer = 4
 joint_type = 1
-joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86268e-08, 2.98022e-07, 0.0762126 )
-body_offset = Transform( 1, -1.13249e-06, 0, -8.9407e-08, 1, 0, 1.63913e-07, -2.02656e-06, 1, -1.86265e-08, -2.98023e-07, -0.0762126 )
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.72474e-09, 2.38417e-07, 0.0762124 )
+body_offset = Transform( 1, -2.29478e-06, 0, -8.9407e-08, 1.00001, 0, 1.63913e-07, -5.126e-06, 1, 3.72529e-09, -2.38419e-07, -0.0762124 )
 bone_name = "ShoulderBlade.L"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
@@ -142,10 +147,11 @@ shape = SubResource( 5 )
 disabled = true
 
 [node name="Physical Bone WingL" type="PhysicalBone" parent="Model/DodoRig/Skeleton" index="5"]
-transform = Transform( 0.237529, -0.405699, -0.882604, -0.0144754, 0.907028, -0.420822, 0.971273, 0.112733, 0.209573, 0.354383, 0.994739, -0.0521077 )
+transform = Transform( 0.237529, -0.405699, -0.882604, -0.0144754, 0.907028, -0.420822, 0.971273, 0.112733, 0.209572, 0.354384, 0.99474, -0.0521077 )
+collision_layer = 4
 joint_type = 1
-joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34042e-08, -3.14155e-07, 0.108257 )
-body_offset = Transform( 1, 0, -8.9407e-08, 5.21541e-08, 1, 1.49012e-07, -1.19209e-07, 0, 1, -3.72529e-09, 2.98023e-07, -0.108257 )
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4293e-08, -4.33364e-07, 0.108257 )
+body_offset = Transform( 1, 0, -2.68221e-07, 5.21541e-08, 1, 1.49012e-07, -1.19209e-07, 0, 1, 6.33299e-08, 4.17233e-07, -0.108258 )
 bone_name = "Wing.L"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
@@ -157,9 +163,10 @@ shape = SubResource( 6 )
 
 [node name="Physical Bone ThighL" type="PhysicalBone" parent="Model/DodoRig/Skeleton" index="6"]
 transform = Transform( 0.344917, 0.931776, -0.113253, 0.0079268, 0.117762, 0.99301, 0.938599, -0.343404, 0.033232, 0.184492, 0.373182, 0.013281 )
+collision_layer = 4
 joint_type = 1
-joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1409e-08, -1.3165e-07, 0.151798 )
-body_offset = Transform( 1, 0, 2.6077e-08, 0, 1, 8.19564e-08, 3.72529e-09, 0, 1, 7.45058e-09, 1.19209e-07, -0.151798 )
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1409e-08, -2.35958e-07, 0.151798 )
+body_offset = Transform( 1, 0, 2.6077e-08, 0, 1, 8.19564e-08, 3.72529e-09, 0, 1, 7.45058e-09, 2.23517e-07, -0.151798 )
 bone_name = "Thigh.L"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
@@ -170,10 +177,11 @@ transform = Transform( 1, 0, -3.72529e-09, 0, 1, 7.45058e-08, 3.72529e-09, 0, 1,
 shape = SubResource( 7 )
 
 [node name="Physical Bone ShinL" type="PhysicalBone" parent="Model/DodoRig/Skeleton" index="7"]
-transform = Transform( -0.744377, 0.666022, -0.048151, -0.0247981, 0.0444868, 0.998705, 0.6673, 0.744604, -0.0165991, 0.206702, 0.118366, 0.00996597 )
+transform = Transform( -0.744377, 0.666022, -0.0481511, -0.0247981, 0.0444868, 0.998708, 0.6673, 0.744604, -0.0165991, 0.206702, 0.118366, 0.00996561 )
+collision_layer = 4
 joint_type = 1
-joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63913e-07, 1.8828e-07, 0.104211 )
-body_offset = Transform( 1, 0, 0, 0, 1, 5.21541e-08, 3.72529e-09, -9.68575e-08, 1, -1.63913e-07, -1.93715e-07, -0.104211 )
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.97673e-07, 4.50678e-07, 0.10421 )
+body_offset = Transform( 1, 0, 4.47035e-08, 0, 1, 1.08033e-07, 3.72529e-09, -9.68575e-08, 1.00001, -4.02331e-07, -4.61936e-07, -0.104211 )
 bone_name = "Shin.L"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
@@ -184,10 +192,11 @@ transform = Transform( 1, 0, 3.72529e-09, 2.98023e-08, 1, 7.45058e-09, 3.72529e-
 shape = SubResource( 8 )
 
 [node name="Physical Bone HeelL" type="PhysicalBone" parent="Model/DodoRig/Skeleton" index="8"]
-transform = Transform( 0.998759, 0.000411712, -0.0498037, 0.000375378, 0.999875, 0.0157939, 0.0498035, -0.0157931, 0.998634, 0.214405, 0.013439, -0.0421418 )
+transform = Transform( 0.998759, 0.000411719, -0.0498039, 0.000375377, 0.999875, 0.0157939, 0.0498035, -0.0157931, 0.998634, 0.214405, 0.013439, -0.0421418 )
+collision_layer = 4
 joint_type = 1
-joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.66102e-07, -3.82094e-08, 0.0539114 )
-body_offset = Transform( 1, 4.16185e-09, -1.19209e-07, -9.31323e-10, 1, 4.6748e-10, 0, -4.05635e-10, 1, 3.72529e-07, 3.81842e-08, -0.0539114 )
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.64878e-07, -7.63895e-08, 0.0539115 )
+body_offset = Transform( 1, 1.12923e-08, -3.01749e-07, -2.35741e-09, 1, 3.91083e-10, 0, -7.60338e-10, 1, 5.81145e-07, 7.63685e-08, -0.0539115 )
 bone_name = "Heel.L"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
@@ -198,10 +207,11 @@ transform = Transform( 1, 6.98492e-10, -2.23517e-08, -1.74623e-10, 1, 5.00222e-1
 shape = SubResource( 9 )
 
 [node name="Physical Bone HeelL001" type="PhysicalBone" parent="Model/DodoRig/Skeleton" index="9"]
-transform = Transform( 0.975564, 0.00350111, -0.219685, -0.00382262, 0.999992, -0.00103808, 0.21968, 0.00185235, 0.97557, 0.256939, 0.00809528, -0.0353511 )
+transform = Transform( 0.975565, 0.00350111, -0.219685, -0.00382262, 0.999992, -0.00103807, 0.21968, 0.00185235, 0.97557, 0.25694, 0.00809531, -0.0353511 )
+collision_layer = 4
 joint_type = 1
-joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57877e-08, -3.01165e-08, 0.0504521 )
-body_offset = Transform( 1, -6.98492e-10, -3.12924e-07, -1.62981e-09, 1, 6.22822e-09, 3.12924e-07, 0, 1, 0, 2.98023e-08, -0.0504521 )
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.38169e-08, -6.70137e-08, 0.0504522 )
+body_offset = Transform( 1, -6.98492e-10, -3.12924e-07, -1.62981e-09, 1, 1.76369e-08, 3.12924e-07, 0, 1, 5.96046e-08, 6.61239e-08, -0.0504522 )
 bone_name = "Heel.L.001"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
@@ -212,10 +222,11 @@ transform = Transform( 0.999999, -1.39698e-09, -8.9407e-08, 1.86265e-09, 0.99999
 shape = SubResource( 10 )
 
 [node name="Physical Bone HeelL002" type="PhysicalBone" parent="Model/DodoRig/Skeleton" index="10"]
-transform = Transform( 0.985712, -0.00731915, 0.16828, 0.0002152, 0.99911, 0.0421943, -0.168439, -0.0415554, 0.984834, 0.161659, 0.0115957, -0.0452647 )
+transform = Transform( 0.985712, -0.00731915, 0.16828, 0.000215201, 0.99911, 0.0421943, -0.168439, -0.0415554, 0.984834, 0.161659, 0.0115957, -0.0452647 )
+collision_layer = 4
 joint_type = 1
-joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.41175e-07, -1.02447e-09, 0.0520718 )
-body_offset = Transform( 1, -1.39698e-09, -2.98023e-08, -7.91624e-09, 1, 1.96742e-08, 4.91738e-07, 9.42964e-09, 0.999998, 3.42727e-07, 0, -0.0520717 )
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.58296e-07, -3.18578e-09, 0.0520717 )
+body_offset = Transform( 1, -1.39698e-09, -5.21541e-07, -7.91624e-09, 1, -1.0361e-08, 4.91738e-07, 9.42964e-09, 0.999998, 6.85453e-07, 3.72529e-09, -0.0520716 )
 bone_name = "Heel.L.002"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
@@ -227,9 +238,10 @@ shape = SubResource( 11 )
 
 [node name="Physical Bone ShoulderBladeR" type="PhysicalBone" parent="Model/DodoRig/Skeleton" index="11"]
 transform = Transform( -0.367852, -0.694487, 0.618364, -0.0457816, -0.650657, -0.75799, 0.928757, -0.307138, 0.20755, -0.211708, 0.891415, -0.013602 )
+collision_layer = 4
 joint_type = 1
-joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.79965e-10, 7.26062e-07, 0.0762129 )
-body_offset = Transform( 1, -2.38419e-07, -2.5332e-07, 1.78814e-07, 1, -9.23872e-07, 5.96046e-08, 4.17233e-07, 1, 1.86265e-08, -6.55651e-07, -0.0762129 )
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.79463e-08, 9.64481e-07, 0.0762134 )
+body_offset = Transform( 1, -2.38419e-07, -2.5332e-07, 1.78814e-07, 1, -9.23872e-07, 5.96046e-08, 4.17233e-07, 1, 3.72529e-08, -8.9407e-07, -0.0762134 )
 bone_name = "ShoulderBlade.R"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
@@ -240,10 +252,11 @@ shape = SubResource( 12 )
 disabled = true
 
 [node name="Physical Bone WingR" type="PhysicalBone" parent="Model/DodoRig/Skeleton" index="12"]
-transform = Transform( 0.237529, 0.405699, 0.882603, 0.0144754, 0.907028, -0.420822, -0.971272, 0.112733, 0.209572, -0.354383, 0.994739, -0.0521077 )
+transform = Transform( 0.237529, 0.405699, 0.882603, 0.0144754, 0.907028, -0.420822, -0.971272, 0.112733, 0.209572, -0.354383, 0.99474, -0.0521076 )
+collision_layer = 4
 joint_type = 1
-joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23517e-08, -2.38419e-07, 0.108257 )
-body_offset = Transform( 1, 1.3411e-07, 0, 0, 1, 0, 1.49012e-08, -2.98023e-08, 1, 2.23517e-08, 2.38419e-07, -0.108257 )
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.47034e-08, -4.76837e-07, 0.108257 )
+body_offset = Transform( 1, 1.3411e-07, 0, 0, 1, 0, 1.49012e-08, -2.98023e-08, 1, 4.47035e-08, 4.76837e-07, -0.108257 )
 bone_name = "Wing.R"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
@@ -254,10 +267,11 @@ transform = Transform( 1, 7.45058e-08, 1.63913e-07, 7.45058e-08, 1, 0, -5.96046e
 shape = SubResource( 13 )
 
 [node name="Physical Bone ThighR" type="PhysicalBone" parent="Model/DodoRig/Skeleton" index="13"]
-transform = Transform( 0.344918, -0.931776, 0.113253, -0.00792645, 0.117761, 0.993011, -0.9386, -0.343404, 0.0332319, -0.184492, 0.373181, 0.0132809 )
+transform = Transform( 0.344918, -0.931777, 0.113253, -0.00792641, 0.117761, 0.993011, -0.9386, -0.343404, 0.0332319, -0.184492, 0.373181, 0.0132809 )
+collision_layer = 4
 joint_type = 1
-joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.38505e-08, 9.05379e-08, 0.151799 )
-body_offset = Transform( 1, -2.98023e-08, 1.11759e-08, -2.98023e-08, 1, -7.45058e-09, 1.41561e-07, -2.38419e-07, 1, 5.21541e-08, -8.9407e-08, -0.151799 )
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.20906e-07, 7.56367e-08, 0.151799 )
+body_offset = Transform( 1, -3.27826e-07, 1.11759e-08, -2.38419e-07, 1, -7.45058e-09, 2.01166e-07, -5.36442e-07, 1, 1.19209e-07, -7.45058e-08, -0.151799 )
 bone_name = "Thigh.R"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
@@ -267,10 +281,11 @@ joint_constraints/impulse_clamp = 0.0
 shape = SubResource( 14 )
 
 [node name="Physical Bone ShinR" type="PhysicalBone" parent="Model/DodoRig/Skeleton" index="14"]
-transform = Transform( -0.744376, -0.666022, 0.0481508, 0.024798, 0.0444867, 0.9987, -0.6673, 0.744604, -0.016599, -0.206702, 0.118366, 0.00996601 )
+transform = Transform( -0.744376, -0.666022, 0.0481506, 0.0247978, 0.0444867, 0.998697, -0.6673, 0.744604, -0.016599, -0.206702, 0.118366, 0.00996592 )
+collision_layer = 4
 joint_type = 1
-joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3411e-07, 1.47071e-07, 0.104211 )
-body_offset = Transform( 1, 1.19209e-07, 0, -2.98023e-08, 1, 1.86265e-08, -1.15484e-07, -3.72529e-09, 0.999998, 1.3411e-07, -1.49012e-07, -0.104211 )
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.93327e-07, 2.17694e-07, 0.104211 )
+body_offset = Transform( 1, 1.19209e-07, -3.72529e-09, -2.98023e-08, 1, 5.58794e-08, -2.98023e-07, -3.72529e-09, 0.999995, 1.93715e-07, -2.23517e-07, -0.104211 )
 bone_name = "Shin.R"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
@@ -280,10 +295,11 @@ joint_constraints/impulse_clamp = 0.0
 shape = SubResource( 15 )
 
 [node name="Physical Bone HeelR" type="PhysicalBone" parent="Model/DodoRig/Skeleton" index="15"]
-transform = Transform( 0.998872, -0.000596146, 0.0474326, -0.000333732, 0.999808, 0.0195961, -0.047435, -0.0195902, 0.998683, -0.214288, 0.0132294, -0.0423754 )
+transform = Transform( 0.99887, -0.000596149, 0.0474328, -0.000333736, 0.999808, 0.0195961, -0.0474351, -0.0195902, 0.998683, -0.214287, 0.0132294, -0.0423754 )
+collision_layer = 4
 joint_type = 1
-joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.45432e-09, 9.00792e-10, 0.0541426 )
-body_offset = Transform( 0.999998, -2.50293e-09, 1.19209e-07, 1.74623e-10, 1, 5.63887e-10, -1.63913e-07, -1.45519e-11, 1, 0, -9.31323e-10, -0.0541426 )
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6535e-07, -8.40652e-09, 0.0541426 )
+body_offset = Transform( 0.999995, -5.3551e-09, 3.01749e-07, 1.22236e-09, 1, 4.54747e-10, -4.24683e-07, -1.50976e-10, 1, 1.49012e-07, 8.3819e-09, -0.0541426 )
 bone_name = "Heel.R"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
@@ -294,10 +310,11 @@ transform = Transform( 1, -4.65661e-10, 0, -5.82077e-11, 1, 6.33008e-10, -2.6077
 shape = SubResource( 16 )
 
 [node name="Physical Bone HeelR001" type="PhysicalBone" parent="Model/DodoRig/Skeleton" index="16"]
-transform = Transform( 0.975565, -0.00350071, 0.219685, 0.00382231, 0.999992, -0.00103812, -0.219679, 0.00185225, 0.97557, -0.256939, 0.00809523, -0.0353512 )
+transform = Transform( 0.975565, -0.00350071, 0.219685, 0.0038223, 0.999992, -0.00103812, -0.219678, 0.00185225, 0.97557, -0.256939, 0.00809521, -0.0353512 )
+collision_layer = 4
 joint_type = 1
-joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86601e-08, 1.76203e-11, 0.0504521 )
-body_offset = Transform( 1, 5.82077e-09, -7.45058e-08, -3.49246e-09, 1, -3.49246e-10, 6.25849e-07, -3.55067e-09, 1, -1.49012e-08, 0, -0.0504521 )
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.82648e-08, 1.77127e-08, 0.0504521 )
+body_offset = Transform( 1, 7.68341e-09, -7.45058e-08, -9.77889e-09, 1, -3.49246e-10, 2.13087e-06, -1.03028e-08, 1, -7.45058e-08, -1.76951e-08, -0.0504521 )
 bone_name = "Heel.R.001"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
@@ -308,10 +325,11 @@ transform = Transform( 1, 9.31323e-10, -4.47035e-08, 0, 1, 2.32831e-10, 7.45058e
 shape = SubResource( 17 )
 
 [node name="Physical Bone HeelR002" type="PhysicalBone" parent="Model/DodoRig/Skeleton" index="17"]
-transform = Transform( 0.985712, 0.00731945, -0.16828, -0.000215438, 0.99911, 0.0421943, 0.16844, -0.0415555, 0.984834, -0.161658, 0.0115957, -0.0452647 )
+transform = Transform( 0.985712, 0.00731937, -0.16828, -0.000215438, 0.99911, 0.0421943, 0.16844, -0.0415553, 0.984834, -0.161658, 0.0115958, -0.0452646 )
+collision_layer = 4
 joint_type = 1
-joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.69599e-08, -1.1652e-08, 0.0520718 )
-body_offset = Transform( 1, -2.32831e-08, 5.21541e-07, 0, 1, -6.23986e-08, -1.49012e-08, 1.77184e-07, 0.999998, 2.98023e-08, 1.49012e-08, -0.0520717 )
+joint_offset = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56454e-07, -3.12114e-08, 0.0520717 )
+body_offset = Transform( 1, -5.86733e-08, 7.15256e-07, 0, 1, -9.81381e-08, -1.49012e-08, 4.13274e-07, 0.999998, 1.19209e-07, 3.63216e-08, -0.0520716 )
 bone_name = "Heel.R.002"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
