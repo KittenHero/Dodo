@@ -34,6 +34,9 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 1610612736, 0, 2, 1610612736, 0, 3, 161061
 position = Vector2( 264, 1289 )
 speed = Vector2( 300, 1000 )
 
+[node name="CollisionShape2D" parent="Player" index="1"]
+visible = false
+
 [node name="Camera2D" parent="Player" index="2"]
 limit_left = 0
 limit_top = 0
