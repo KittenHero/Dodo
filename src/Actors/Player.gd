@@ -15,7 +15,7 @@ func _on_EnemyDetector_area_entered(area: Area2D) -> void:
 func _physics_process(delta: float) -> void:
 	var is_jump_interrupted: = Input.is_action_just_released('jump') and _velocity.y < 0.0
 	var direction: = get_direction() 
-	_velocity = calculate_move_velcoity(_velocity, direction, speed, is_jump_interrupted)
+	_velocity = calculate_move_velcoity(_velocity, direction, _speed, is_jump_interrupted)
 	_velocity = move_and_slide(_velocity, FLOOR_NORMAL)
 
 
@@ -35,7 +35,7 @@ func calculate_move_velcoity(
 	) -> Vector2:
 	var out: = linear_velocity
 	out.x = speed.x * direction.x
-	out.y += gravity * get_physics_process_delta_time()
+	out.y += _gravity * get_physics_process_delta_time()
 	if direction.y == -1.0:
 		out.y = speed.y * direction.y
 	if is_jump_interrupted:
