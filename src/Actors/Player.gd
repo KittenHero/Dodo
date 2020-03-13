@@ -5,7 +5,7 @@ export var stomp_impulse: = 1000.0
 
 
 func _on_EnemyDetector_body_entered(_body: PhysicsBody2D) -> void:
-	queue_free()
+	die()
 
 
 func _on_EnemyDetector_area_entered(_area: Area2D) -> void:
@@ -43,11 +43,12 @@ func calculate_move_velcoity(
 	return out
 
 
-
 func calculate_stomp_velocity(linear_velocity: Vector2, impulse: float) -> Vector2:
 	var out: = linear_velocity
 	out.y = -impulse
 	return out
 
 
-
+func die() -> void:
+	PlayerData.deaths += 1
+	queue_free()

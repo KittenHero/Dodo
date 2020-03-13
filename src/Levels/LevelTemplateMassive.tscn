@@ -1,8 +1,11 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/tilesheet_complete.png" type="Texture" id=1]
 [ext_resource path="res://assets/island.jpg" type="Texture" id=2]
 [ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UserInterface/UserInterface.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/UserInterface/UserInterface.gd" type="Script" id=5]
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -290,6 +293,18 @@ points = PoolVector2Array( -192, 0, -192, -64, -192, -128, -128, -64, -128, 0 )
 
 [node name="LevelTemplateMassive" type="Node2D"]
 position = Vector2( -455.18, -306.982 )
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+
+[node name="UserInterface" type="Control" parent="UserInterface" instance=ExtResource( 4 )]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 6 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enable = true
