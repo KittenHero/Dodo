@@ -14,20 +14,26 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Actors/Actor.gd"
 }, {
-"base": "Node",
-"class": "StateMachine",
+"base": "KinematicBody2D",
+"class": "Player",
 "language": "GDScript",
-"path": "res://src/Actors/StateMachine.gd"
+"path": "res://src/Actors/Player/Player.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://src/Actors/State.gd"
 } ]
 _global_script_class_icons={
 "Actor": "",
-"StateMachine": ""
+"Player": "",
+"State": ""
 }
 
 [application]
 
 config/name="2D platformer"
-run/main_scene="res://src/Levels/Level01.tscn"
+run/main_scene="res://src/Levels/LevelTemplateMassive.tscn"
 config/icon="res://icon.png"
 
 [input]
