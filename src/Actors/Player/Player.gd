@@ -37,10 +37,10 @@ func set_state(state) -> void:
 	previous_state = current_state
 	current_state = state_dict[state]
 	current_state.enter(self)
-	print(current_state.name)
 
 func _on_EnemyDetector_area_entered(_area: Area2D):
-	pass
+	set_state(STATES.JUMPING)
 	
 func _on_EnemyDetector_body_entered(_body: Node):
-	pass
+	PlayerData.deaths += 1
+	queue_free()

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/font_default.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/UserInterface/ChangeSceneButton.gd" type="Script" id=2]
+
+[node name="ChangeSceneButton" type="Button"]
+margin_right = 207.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "Play"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_scene_path = "res://src/Levels/Level01.tscn"
+[connection signal="button_up" from="." to="." method="_on_button_up"]
