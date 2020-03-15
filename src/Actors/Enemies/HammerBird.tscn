@@ -45,7 +45,7 @@ tracks/2/keys = {
 "times": PoolRealArray( -0.1, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ -83.5, 0.0 ]
+"values": [ -12.9, 71.8 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("HammerSlap/HammerCollision:position")
@@ -57,7 +57,7 @@ tracks/3/keys = {
 "times": PoolRealArray( -0.1, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -192 ), Vector2( 240, 0 ) ]
+"values": [ Vector2( 18.6463, -35.7564 ), Vector2( -63.2798, 235.905 ) ]
 }
 
 [sub_resource type="SpriteFrames" id=1]
@@ -98,8 +98,8 @@ enabled = true
 [node name="PlayerCast" type="RayCast2D" parent="."]
 
 [node name="Hammer" type="Sprite" parent="."]
-position = Vector2( 41.0638, -120.791 )
-rotation = 1.09127
+position = Vector2( 52.6341, -111.998 )
+rotation = 1.18335
 scale = Vector2( 0.084, 0.081 )
 texture = ExtResource( 3 )
 
@@ -116,6 +116,8 @@ position = Vector2( 49.2766, -152.579 )
 rotation = -1.15813
 
 [node name="HammerCollision" type="CollisionShape2D" parent="HammerSlap"]
+position = Vector2( -2.91427, 35.737 )
+rotation = 0.163896
 shape = SubResource( 4 )
 
 [node name="States" type="Node" parent="."]
