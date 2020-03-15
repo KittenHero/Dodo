@@ -4,7 +4,7 @@ extends Node
 signal score_updated
 signal player_died
 
-
+var player 
 var score: = 0 setget set_score
 var deaths: = 0 setget set_deaths
 

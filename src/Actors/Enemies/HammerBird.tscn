@@ -1,0 +1,138 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/ellipse-2.png" type="Texture" id=1]
+[ext_resource path="res://assets/ellipse-1.png" type="Texture" id=2]
+[ext_resource path="res://assets/hammer.png" type="Texture" id=3]
+[ext_resource path="res://src/Actors/Enemies/HammerBird.gd" type="Script" id=4]
+[ext_resource path="res://src/Actors/Enemies/HammerBirdStartled.gd" type="Script" id=5]
+[ext_resource path="res://src/Actors/Enemies/HammerBirdPatroll.gd" type="Script" id=6]
+[ext_resource path="res://src/Actors/Enemies/HammerBirdFalling.gd" type="Script" id=7]
+
+[sub_resource type="Animation" id=2]
+resource_name = "hammer_swing"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Hammer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -0.1, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -7.62939e-06, -152 ), Vector2( 200, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Hammer:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( -0.1, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 43.8, 135.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HammerSlap/HammerCollision:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( -0.1, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -83.5, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HammerSlap/HammerCollision:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( -0.1, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -192 ), Vector2( 240, 0 ) ]
+}
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "Walking",
+"speed": 12.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 72.0
+height = 0.0
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 29.0774
+height = 49.1942
+
+[node name="HammerBird" type="KinematicBody2D"]
+script = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/hammer_swing = SubResource( 2 )
+
+[node name="Blob" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.971496, 1.20648 )
+frames = SubResource( 1 )
+animation = "Walking"
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="LedgeCast" type="RayCast2D" parent="."]
+position = Vector2( 80, 24 )
+enabled = true
+
+[node name="PlayerCast" type="RayCast2D" parent="."]
+
+[node name="Hammer" type="Sprite" parent="."]
+position = Vector2( 41.0638, -120.791 )
+rotation = 1.09127
+scale = Vector2( 0.084, 0.081 )
+texture = ExtResource( 3 )
+
+[node name="BlobCollision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -8, 8 )
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HammerSlap" type="Area2D" parent="."]
+position = Vector2( 49.2766, -152.579 )
+rotation = -1.15813
+
+[node name="HammerCollision" type="CollisionShape2D" parent="HammerSlap"]
+shape = SubResource( 4 )
+
+[node name="States" type="Node" parent="."]
+
+[node name="Patroll" type="Node" parent="States"]
+script = ExtResource( 6 )
+
+[node name="Windup" type="Node" parent="States"]
+
+[node name="Slam" type="Node" parent="States"]
+
+[node name="Startled" type="Node" parent="States"]
+script = ExtResource( 5 )
+
+[node name="Stagger" type="Node" parent="States"]
+
+[node name="Falling" type="Node" parent="States"]
+script = ExtResource( 7 )
+
+[node name="Chasing" type="Node" parent="States"]

@@ -28,6 +28,7 @@ onready var current_state = $States/Idle
 var previous_state: Node;
 
 func _physics_process(delta: float) -> void:
+	PlayerData.set("player", self)
 	frame_count += 1
 	current_state.physics_process(self, delta)
 

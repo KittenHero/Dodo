@@ -1,4 +1,4 @@
-extends State
+	extends State
 
 var can_jump;
 
