@@ -6,6 +6,9 @@ export var max_speed = 500
 export var time_to_max_speed = 20
 onready var acc_per_frame = max_speed / time_to_max_speed
 export var jump_height = 500
+export var dive_multiplier = Vector2(2, 0.5)
+export var tech_frames = 5
+
 var frame_count = 0
 
 var velocity = Vector2.ZERO
@@ -15,6 +18,7 @@ enum STATES {
 	RUNNING,
 	JUMPING,
 	FALLING,
+	DIVE,
 	TUMBLE,
 }
 onready var state_dict = {
@@ -22,6 +26,7 @@ onready var state_dict = {
 	STATES.RUNNING: $States/Running,
 	STATES.JUMPING: $States/Jumping,
 	STATES.FALLING: $States/Falling,
+	STATES.DIVE: $States/Dive,
 	STATES.TUMBLE: $States/Tumble,
 }
 onready var current_state = $States/Idle
@@ -46,8 +51,8 @@ func move_horizontal(_delta: float) -> Vector2:
 		velocity.x += acc_per_frame;
 	elif is_on_floor():
 		velocity.x -= velocity.sign().x * acc_per_frame;
-	if velocity.x > max_speed:
-		velocity.x = max_speed
+	if abs(velocity.x) > max_speed:
+		velocity.x = max_speed * velocity.sign().x
 	return velocity
 
 func modulate_sprite(color: Color) -> void:
@@ -59,6 +64,6 @@ func _on_EnemyDetector_area_entered(area: Area2D):
 		set_state(STATES.JUMPING)
 	
 	
-func _on_EnemyDetector_body_entered(_body: Node):
+func _on_EnemyDetector_body_entered(body: Node):
 	PlayerData.deaths += 1
 	queue_free()
