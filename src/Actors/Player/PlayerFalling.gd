@@ -1,4 +1,4 @@
-	extends State
+extends State
 
 var can_jump;
 
@@ -11,10 +11,10 @@ func physics_process(parent: KinematicBody2D, delta: float):
 	if parent.is_on_floor():
 		parent.set_state(parent.STATES.TUMBLE)
 	elif Input.is_action_just_pressed("jump"):
-		if parent.frame_count < 5:
+		if can_jump and parent.frame_count < 5:
 			parent.set_state(parent.STATES.JUMPING)
 		else:
-			parent.set_state(parent.STATES.TUMBLE)
+			parent.set_state(parent.STATES.DIVE)
 
 
 func enter(parent: KinematicBody2D):
