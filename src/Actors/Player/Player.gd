@@ -39,6 +39,20 @@ func set_state(state) -> void:
 	current_state = state_dict[state]
 	current_state.enter(self)
 
+func move_horizontal(_delta: float) -> Vector2:
+	if Input.is_action_pressed("move_left"):
+		velocity.x -= acc_per_frame;
+	elif Input.is_action_pressed("move_right"):
+		velocity.x += acc_per_frame;
+	elif is_on_floor():
+		velocity.x -= velocity.sign().x * acc_per_frame;
+	if velocity.x > max_speed:
+		velocity.x = max_speed
+	return velocity
+
+func modulate_sprite(color: Color) -> void:
+	$player.modulate = color
+
 func _on_EnemyDetector_area_entered(_area: Area2D):
 	set_state(STATES.JUMPING)
 	

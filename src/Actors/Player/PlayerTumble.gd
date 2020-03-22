@@ -1,17 +1,18 @@
 extends State
 
-var aerial;
+var aerial_tumble;
 
 func physics_process(parent: KinematicBody2D, delta: float):
+	var grounded = parent.is_on_floor()
 	var velocity = parent.velocity
 	velocity.y += parent.gravity * delta
-	if velocity.x != 0:
+	if grounded and velocity.x != 0:
 		velocity.x -= velocity.sign().x * parent.acc_per_frame
 	parent.velocity = parent.move_and_slide(velocity, Vector2.UP)
 	
 	if (
-		aerial and parent.is_on_floor() and parent.frame_count < 5
-		or not aerial and parent.frame_count < 5 and Input.is_action_pressed("jump")
+		aerial_tumble and grounded and parent.frame_count < 5
+		or not aerial_tumble and parent.frame_count < 5 and Input.is_action_pressed("jump")
 		or parent.frame_count > 180
 	):
 		parent.set_state(parent.STATES.RUNNING)
@@ -20,8 +21,9 @@ func physics_process(parent: KinematicBody2D, delta: float):
 	
 
 func enter(parent: KinematicBody2D):
-	aerial = not parent.is_on_floor()
+	aerial_tumble = not parent.is_on_floor()
+	parent.modulate_sprite(Color.blue if aerial_tumble else Color.red)
 
 
-func exit(_parent: KinematicBody2D):
-	pass
+func exit(parent: KinematicBody2D):
+	parent.modulate_sprite(Color.white)
