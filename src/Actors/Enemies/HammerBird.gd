@@ -3,8 +3,8 @@ class_name HammerBird
 
 export var windup = 10
 export var max_speed = 300
-export var jump_height = 200
-export var gravity = 3000
+export var jump_height = 1
+export var gravity = 100
 export var detection_range = 600
 export var stagger = 50
 export var life = 2
@@ -12,6 +12,7 @@ export var life = 2
 var velocity = Vector2.ZERO
 var animation_playthrough = 3
 var frame_count = 0
+
 
 enum STATES {
 	PATROLL,
@@ -49,5 +50,9 @@ func set_state(state) -> void:
 func _ready():
 	$PlayerCast.add_exception($BlobCollision)
 	$PlayerCast.add_exception($HammerSlap/HammerCollision)
+
+func _draw():
+	draw_circle(Vector2(), detection_range, Color(0, 0, 0, 1))
+
 
 

@@ -1,6 +1,5 @@
 extends State
 
-
 func physics_process(parent: KinematicBody2D, delta: float):
 	var velocity = parent.velocity
 	velocity.y += parent.gravity * delta

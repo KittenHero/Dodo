@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/ellipse-2.png" type="Texture" id=1]
 [ext_resource path="res://assets/ellipse-1.png" type="Texture" id=2]
@@ -7,8 +7,9 @@
 [ext_resource path="res://src/Actors/Enemies/HammerBirdStartled.gd" type="Script" id=5]
 [ext_resource path="res://src/Actors/Enemies/HammerBirdPatroll.gd" type="Script" id=6]
 [ext_resource path="res://src/Actors/Enemies/HammerBirdFalling.gd" type="Script" id=7]
+[ext_resource path="res://src/Actors/Enemies/HammerBirdChasing.gd" type="Script" id=8]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "hammer_swing"
 loop = true
 tracks/0/type = "value"
@@ -60,7 +61,7 @@ tracks/3/keys = {
 "values": [ Vector2( 18.6463, -35.7564 ), Vector2( -63.2798, 235.905 ) ]
 }
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
 "loop": true,
@@ -80,11 +81,11 @@ height = 49.1942
 script = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/hammer_swing = SubResource( 2 )
+anims/hammer_swing = SubResource( 1 )
 
 [node name="Blob" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.971496, 1.20648 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "Walking"
 __meta__ = {
 "_edit_group_": true,
@@ -96,10 +97,11 @@ position = Vector2( 80, 24 )
 enabled = true
 
 [node name="PlayerCast" type="RayCast2D" parent="."]
+enabled = true
 
 [node name="Hammer" type="Sprite" parent="."]
-position = Vector2( 52.6341, -111.998 )
-rotation = 1.18335
+position = Vector2( 110.51, -68.0125 )
+rotation = 1.64397
 scale = Vector2( 0.084, 0.081 )
 texture = ExtResource( 3 )
 
@@ -116,8 +118,8 @@ position = Vector2( 49.2766, -152.579 )
 rotation = -1.15813
 
 [node name="HammerCollision" type="CollisionShape2D" parent="HammerSlap"]
-position = Vector2( -2.91427, 35.737 )
-rotation = 0.163896
+position = Vector2( -26.6219, 114.35 )
+rotation = 0.591683
 shape = SubResource( 4 )
 
 [node name="States" type="Node" parent="."]
@@ -138,3 +140,4 @@ script = ExtResource( 5 )
 script = ExtResource( 7 )
 
 [node name="Chasing" type="Node" parent="States"]
+script = ExtResource( 8 )
