@@ -53,8 +53,11 @@ func move_horizontal(_delta: float) -> Vector2:
 func modulate_sprite(color: Color) -> void:
 	$player.modulate = color
 
-func _on_EnemyDetector_area_entered(_area: Area2D):
-	set_state(STATES.JUMPING)
+
+func _on_EnemyDetector_area_entered(area: Area2D):
+	if area.get_name() == 'StompDetector':
+		set_state(STATES.JUMPING)
+	
 	
 func _on_EnemyDetector_body_entered(_body: Node):
 	PlayerData.deaths += 1
