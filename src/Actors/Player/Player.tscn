@@ -49,6 +49,7 @@ position = Vector2( 0, -41 )
 shape = SubResource( 2 )
 
 [node name="States" type="Node" parent="."]
+script = ExtResource( 8 )
 
 [node name="Idle" type="Node" parent="States"]
 script = ExtResource( 3 )
@@ -62,10 +63,10 @@ script = ExtResource( 5 )
 [node name="Falling" type="Node" parent="States"]
 script = ExtResource( 6 )
 
-[node name="Dive" type="Node" parent="States"]
-script = ExtResource( 8 )
-
 [node name="Tumble" type="Node" parent="States"]
 script = ExtResource( 7 )
+
+[node name="Dive" type="Node" parent="States"]
+script = ExtResource( 8 )
 [connection signal="area_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_area_entered"]
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]
