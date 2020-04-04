@@ -10,6 +10,7 @@ func _ready() -> void:
 	
 	
 func _on_StompDetector_area_entered(area: Area2D) -> void:
+	
 	if area.global_position.y > get_node("StompDetector").global_position.y:
 		return
 	
