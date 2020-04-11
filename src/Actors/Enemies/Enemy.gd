@@ -11,6 +11,10 @@ func _ready() -> void:
 	
 func _on_StompDetector_area_entered(area: Area2D) -> void:
 	
+	# if PlayerData.player.current_state.name == 'DIVE':
+		# $CollisionShape2D.set_deferred("disabled", true)
+		# die()
+	
 	if area.global_position.y > get_node("StompDetector").global_position.y:
 		return
 	
