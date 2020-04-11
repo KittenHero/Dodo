@@ -3,9 +3,9 @@ extends State
 func physics_process(parent: KinematicBody2D, delta: float):
 	var velocity = parent.move_horizontal(delta)
 	velocity.y += parent.gravity * delta
-	parent.velocity = parent.move_and_slide(velocity, Vector2.UP)
+	var collision = parent.move_and_collide(velocity * delta)
 	
-	if parent.velocity.y >= 0:
+	if velocity.y >= 0 or collision:
 		parent.set_state(parent.STATES.FALLING)
 	elif Input.is_action_just_pressed("jump"):
 		parent.set_state(parent.STATES.DIVE)
