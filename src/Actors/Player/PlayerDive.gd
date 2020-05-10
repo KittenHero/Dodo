@@ -9,9 +9,9 @@ func physics_process(parent: KinematicBody2D, delta: float):
 
 
 func enter(parent: KinematicBody2D):
-	parent.velocity = Vector2(
-		parent.velocity.sign().x * parent.max_speed * parent.dive_multiplier.x,
-		-sqrt(2 * parent.jump_height * parent.gravity * parent.dive_multiplier.y)
+	parent.velocity.y = -sqrt(
+		2 * parent.jump_height * parent.gravity
+		* parent.dive_multiplier.y
 	)
 
 

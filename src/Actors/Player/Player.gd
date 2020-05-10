@@ -46,13 +46,13 @@ func set_state(state) -> void:
 
 func move_horizontal(_delta: float) -> Vector2:
 	if Input.is_action_pressed("move_left"):
-		velocity.x -= acc_per_frame;
+		velocity.x -= acc_per_frame
 	elif Input.is_action_pressed("move_right"):
-		velocity.x += acc_per_frame;
+		velocity.x += acc_per_frame
 	elif is_on_floor():
-		velocity.x -= velocity.sign().x * acc_per_frame;
+		velocity.x -= sign(velocity.x) * acc_per_frame
 	if abs(velocity.x) > max_speed:
-		velocity.x = max_speed * velocity.sign().x
+		velocity.x = max_speed * sign(velocity.x)
 	return velocity
 
 func modulate_sprite(color: Color) -> void:
@@ -61,7 +61,7 @@ func modulate_sprite(color: Color) -> void:
 func _on_EnemyDetector_area_entered(area: Area2D):
 	if area.get_name() == 'StompDetector':
 		set_state(STATES.JUMPING)
-	
-func _on_EnemyDetector_body_entered(body: Node):
+
+func _on_EnemyDetector_body_entered(_body: Node):
 	PlayerData.deaths += 1
 	queue_free()
