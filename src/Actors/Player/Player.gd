@@ -2,10 +2,10 @@ extends KinematicBody2D
 class_name Player
 
 export var gravity = 3000
-export var max_speed = 500
+export var max_speed = 1000
 export var time_to_max_speed = 20
 onready var acc_per_frame = max_speed / time_to_max_speed
-export var jump_height = 500
+export var jump_height = 300
 export var dive_multiplier = Vector2(2, 0.5)
 export var tech_frames = 5
 
@@ -61,6 +61,10 @@ func modulate_sprite(color: Color) -> void:
 func _on_EnemyDetector_area_entered(area: Area2D):
 	if area.get_name() == 'StompDetector':
 		set_state(STATES.JUMPING)
+	
+	if area.get_name() == 'DANGER':
+		PlayerData.deaths += 1
+		queue_free()
 
 func _on_EnemyDetector_body_entered(_body: Node):
 	PlayerData.deaths += 1
